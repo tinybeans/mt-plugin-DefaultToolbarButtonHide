@@ -1,0 +1,23 @@
+name: Default Toolbar Button Hide Sort
+id: default_toolbar_button_hide_sort
+key: default_toolbar_button_hide_sort
+author_link: http://www.tinybeans.net/blog/
+author_name: Tomohiro Okuwaki
+description: This is used with "Default Toolbar Button Hide Plugin".
+version: 1.0
+plugin_link: http://www.tinybeans.net/blog/download/mt-plugin/default-toolbar-button-hide.html
+
+buttons:
+    dtbh_inline:
+        face_text: Sort
+        title: This is used with "Default Toolbar Button Hide Plugin".
+        code: |
+            function ceb_dtbh_inline ( text ) {
+                var cName = "" + document.getElementById("default-toolbar-buttons").className;
+                var isPkg = cName.match(/ pkg/);
+                if (isPkg) {
+                    document.getElementById("default-toolbar-buttons").className = "field-buttons-formatting";
+                } else {
+                    document.getElementById("default-toolbar-buttons").className = "field-buttons-formatting pkg";
+                }
+            }
