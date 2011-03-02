@@ -100,44 +100,42 @@ sub hide_buttons {
     my $op_toggle_html            = $plugin->get_setting('opt_toggle_html', $blog_id);
 
     my $style = <<__MT__;
-    <mt:setvarblock name="html_head" append="1">
-    <style type="text/css">
-    .hide-button {
-       display: none !important;
-    }
+<mt:setvarblock name="html_head" append="1">
+<style type="text/css">
+.hide-button {display: none !important;}
 __MT__
 
     if ($op_default_toolbar_inline) {
         $style .= 
             "#editor-content-toolbar.editor-toolbar #ceb-container.ceb-container {margin-top: 0 !important;}\n".
-            "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button {margin-right: 4px !important;}\n".
+            " {margin-right: 4px !important;}\n".
             "#editor-content-enclosure {clear: both !important;}\n";
     }
 
     $style .= ".command-font-size-smaller {display: none !important;}\n" if $op_font_size_smaller;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-font-size-larger {display: none !important;}\n" if $op_font_size_larger;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-bold {display: none !important;}\n" if $op_bold;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-italic {display: none !important;}\n" if $op_italic;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-underline {display: none !important;}\n" if $op_underline;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-strikethrough {display: none !important;}\n" if $op_strikethrough;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-color {display: none !important;}\n" if $op_color;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-insert-link {display: none !important;}\n" if $op_insert_link;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-insert-email {display: none !important;}\n" if $op_insert_email;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-indent {display: none !important;}\n" if $op_indent;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-outdent {display: none !important;}\n" if $op_outdent;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-insert-unordered-list {display: none !important;}\n" if $op_insert_unordered_list;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-insert-ordered-list {display: none !important;}\n" if $op_insert_ordered_list;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-enclosure-align-left {display: none !important;}\n" if $op_enclosure_align_left;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-enclosure-align-center {display: none !important;}\n" if $op_enclosure_align_center;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-enclosure-align-right {display: none !important;}\n" if $op_enclosure_align_right;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-justify-left {display: none !important;}\n" if $op_justify_left;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-justify-center {display: none !important;}\n" if $op_justify_center;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-justify-right {display: none !important;}\n" if $op_justify_right;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-spell-check {display: none !important;}\n" if $op_spell_check;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-insert-image {display: none !important;}\n" if $op_insert_image;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-insert-file {display: none !important;}\n" if $op_insert_file;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-toggle-wysiwyg {display: none !important;}\n" if $op_toggle_wysiwyg;
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting a.toolbar.button.command-toggle-html {display: none !important;}\n" if $op_toggle_html;
+    $style .= ".command-font-size-larger {display: none !important;}\n" if $op_font_size_larger;
+    $style .= ".command-bold {display: none !important;}\n" if $op_bold;
+    $style .= ".command-italic {display: none !important;}\n" if $op_italic;
+    $style .= ".command-underline {display: none !important;}\n" if $op_underline;
+    $style .= ".command-strikethrough {display: none !important;}\n" if $op_strikethrough;
+    $style .= ".command-color {display: none !important;}\n" if $op_color;
+    $style .= ".command-insert-link {display: none !important;}\n" if $op_insert_link;
+    $style .= ".command-insert-email {display: none !important;}\n" if $op_insert_email;
+    $style .= ".command-indent {display: none !important;}\n" if $op_indent;
+    $style .= ".command-outdent {display: none !important;}\n" if $op_outdent;
+    $style .= ".command-insert-unordered-list {display: none !important;}\n" if $op_insert_unordered_list;
+    $style .= ".command-insert-ordered-list {display: none !important;}\n" if $op_insert_ordered_list;
+    $style .= ".command-enclosure-align-left {display: none !important;}\n" if $op_enclosure_align_left;
+    $style .= ".command-enclosure-align-center {display: none !important;}\n" if $op_enclosure_align_center;
+    $style .= ".command-enclosure-align-right {display: none !important;}\n" if $op_enclosure_align_right;
+    $style .= ".command-justify-left {display: none !important;}\n" if $op_justify_left;
+    $style .= ".command-justify-center {display: none !important;}\n" if $op_justify_center;
+    $style .= ".command-justify-right {display: none !important;}\n" if $op_justify_right;
+    $style .= ".command-spell-check {display: none !important;}\n" if $op_spell_check;
+    $style .= ".command-insert-image {display: none !important;}\n" if $op_insert_image;
+    $style .= ".command-insert-file {display: none !important;}\n" if $op_insert_file;
+    $style .= ".command-toggle-wysiwyg {display: none !important;}\n" if $op_toggle_wysiwyg;
+    $style .= ".command-toggle-html {display: none !important;}\n" if $op_toggle_html;
     
     $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting {display: none !important;}\n" if $op_default_toolbar_hide;
     $style .= "#editor-content-toolbar.editor-toolbar #ceb-container.ceb-container {display: block !important;}\n" if $op_default_toolbar_hide;
