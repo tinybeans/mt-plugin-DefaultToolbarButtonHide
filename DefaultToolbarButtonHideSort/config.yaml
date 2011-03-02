@@ -4,7 +4,7 @@ key: default_toolbar_button_hide_sort
 author_link: http://www.tinybeans.net/blog/
 author_name: Tomohiro Okuwaki
 description: This is used with "Default Toolbar Button Hide Plugin".
-version: 1.0
+version: 1.2
 plugin_link: http://www.tinybeans.net/blog/download/mt-plugin/default-toolbar-button-hide.html
 
 buttons:
