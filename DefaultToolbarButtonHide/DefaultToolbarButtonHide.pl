@@ -106,9 +106,9 @@ __MT__
     # インライン設定（1行にする）
     if ($op_default_toolbar_inline) {
         $style .= <<'__MT__';
-.field-buttons-formatting {float: left !important; padding-right: 4px !important;};
-#ceb-container {margin-top: 4px !important;}
-#editor-content-enclosure {clear: both !important;}
+#main #main-content .field-buttons-formatting {float: left; padding-right: 4px;};
+#main #main-content #ceb-container {margin-top: 4px;}
+#main #main-content #editor-content-enclosure {clear: both;}
 __MT__
     }
 

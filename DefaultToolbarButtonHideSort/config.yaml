@@ -13,11 +13,10 @@ buttons:
         title: This is used with "Default Toolbar Button Hide Plugin".
         code: |
             function ceb_dtbh_inline ( text ) {
-                var cName = "" + document.getElementById("default-toolbar-buttons").className;
-                var isPkg = cName.match(/ pkg/);
-                if (isPkg) {
-                    document.getElementById("default-toolbar-buttons").className = "field-buttons-formatting";
+                var formatting = jQuery("div.field-buttons-formatting");
+                if (formatting.css("float") == "left") {
+                    formatting.css({"float":"none","padding-right":0});
                 } else {
-                    document.getElementById("default-toolbar-buttons").className = "field-buttons-formatting pkg";
+                    formatting.css({"float":"left","padding-right":"4px"});
                 }
             }
