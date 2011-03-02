@@ -102,16 +102,26 @@ sub hide_buttons {
     my $style = <<__MT__;
 <mt:setvarblock name="html_head" append="1">
 <style type="text/css">
-.hide-button {display: none !important;}
 __MT__
 
+    # インライン設定（1行にする）
     if ($op_default_toolbar_inline) {
-        $style .= 
-            "#editor-content-toolbar.editor-toolbar #ceb-container.ceb-container {margin-top: 0 !important;}\n".
-            " {margin-right: 4px !important;}\n".
-            "#editor-content-enclosure {clear: both !important;}\n";
+        $style .= <<'__MT__';
+.field-buttons-formatting {float: left !important; padding-right: 4px !important;};
+#ceb-container {margin-top: 4px !important;}
+#editor-content-enclosure {clear: both !important;}
+__MT__
     }
 
+    # デフォルトボタンの一括非表示
+    if ($op_default_toolbar_hide) {
+        $style .= <<'__MT__';
+.field-buttons-formatting {display: none !important;};
+#ceb-container {display: block !important;};
+__MT__
+    }
+
+    # 各ボタンの非表示設定
     $style .= ".command-font-size-smaller {display: none !important;}\n" if $op_font_size_smaller;
     $style .= ".command-font-size-larger {display: none !important;}\n" if $op_font_size_larger;
     $style .= ".command-bold {display: none !important;}\n" if $op_bold;
@@ -136,13 +146,10 @@ __MT__
     $style .= ".command-insert-file {display: none !important;}\n" if $op_insert_file;
     $style .= ".command-toggle-wysiwyg {display: none !important;}\n" if $op_toggle_wysiwyg;
     $style .= ".command-toggle-html {display: none !important;}\n" if $op_toggle_html;
-    
-    $style .= "#editor-content-toolbar.editor-toolbar .field-buttons-formatting {display: none !important;}\n" if $op_default_toolbar_hide;
-    $style .= "#editor-content-toolbar.editor-toolbar #ceb-container.ceb-container {display: block !important;}\n" if $op_default_toolbar_hide;
 
     $style .= '</style></mt:setvarblock>';
 
-    $$tmpl_ref = $style . 'tomohiro okuwaki' . $$tmpl_ref;
+    $$tmpl_ref = $style . $$tmpl_ref;
 }
 
 sub remove_pkg {
