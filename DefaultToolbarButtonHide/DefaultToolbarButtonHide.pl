@@ -45,7 +45,6 @@ my $plugin = MT::Plugin::DefaultToolbarButtonHide->new({
     registry => {
         callbacks => {
             'template_source.edit_entry' => \&hide_buttons,
-            'template_output.edit_entry' => \&remove_pkg,
         },
     }
 });
@@ -150,21 +149,6 @@ __MT__
     $style .= '</style></mt:setvarblock>';
 
     $$tmpl_ref = $style . $$tmpl_ref;
-}
-
-sub remove_pkg {
-    my ($cb, $app, $tmpl_str_ref, $param, $tmpl) = @_;
-    return unless UNIVERSAL::isa($tmpl, 'MT::Template');
-    
-    my $blog_id = $app->param('blog_id');
-    my $op_default_toolbar_inline = $plugin->get_setting('opt_default_toolbar_inline', $blog_id);
-
-    if ($op_default_toolbar_inline) {
-        my $old = '<div class="field-buttons-formatting pkg">';
-        my $new = '<div id="default-toolbar-buttons" class="field-buttons-formatting">';
-
-        $$tmpl_str_ref =~ s!$old!$new!;
-    }
 }
 
 1;
